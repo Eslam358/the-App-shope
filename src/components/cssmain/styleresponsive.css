@@ -1,0 +1,46 @@
+@media screen and (max-width: 600px) {
+
+}
+
+.eee{
+    color: blue;
+}
+@media screen and (max-width: 800px) and (min-width: 500px) {
+.desplaynonxl{
+    display: none;
+}
+}
+
+.eee{
+    color: blue;
+}
+@media screen and (max-width: 800px) and (min-width: 500px) {
+.desplaynonxl{
+    display: none;
+}
+}
+
+.eee{
+    color: blue;
+}
+@media screen and (max-width: 800px) and (min-width: 500px) {
+.desplaynonxl{
+    display: none;
+}
+}
+
+.eee{
+    color: blue;
+}
+/* ------------------------------------------------------------------------------------------- */
+.display-600-none-img{
+    @media screen and (max-width: 600px) {
+      display: none;
+    }
+  }
+  .display-601-none-img{
+    /* display: none; */
+    @media screen and (min-width: 601px) {
+      display: none;
+    }
+  }
