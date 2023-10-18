@@ -214,7 +214,7 @@
 
       <img
         class="display-600-none-img"
-        style="width: 100px; cursor: pointer"
+        style="width: 100px; cursor: pointer; display: none"
         src="../../assets/images/footer-logo.webp"
         alt=""
         @click="$router.push('/')"
