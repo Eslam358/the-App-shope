@@ -78,17 +78,12 @@ export default {
   inject: ["emitter"],
   beforeMount() {},
 
-  mounted() {
-    this.windowsize = window.innerWidth;
-    window.onresize = () => {
-      this.windowsize = window.innerWidth;
-      console.log(this.windowsize);
-    };
+  async mounted() {
     this.emitter.on("naveuse", () => {
       this.noor = true;
     });
-    this.getproduct();
-    this.name_categories();
+    await this.getproduct();
+    await this.name_categories();
 
     this.getproductarr.forEach((el) => {
       if (!this.Arr.includes(el.category)) this.Arr.push(el.category);
@@ -97,6 +92,12 @@ export default {
       if (!this.Arr.includes(el)) this.Arrmore.push(el);
     });
     // await this.Allproducts();
+    console.log("layout");
+    this.windowsize = window.innerWidth;
+    window.onresize = () => {
+      this.windowsize = window.innerWidth;
+      console.log(this.windowsize);
+    };
   },
 };
 </script>

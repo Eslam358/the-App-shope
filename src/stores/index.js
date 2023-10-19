@@ -3,7 +3,7 @@ import { defineStore } from "pinia";
 
 export const productsAll = defineStore("productsAll", {
   state: () => {
-    return { count: 0, getproductarr: [], favoriteproduct: [] };
+    return { count: 0, getproductarr: [], favoriteproduct: [], windowsize: 0 };
   },
   actions: {
     async getproduct() {
@@ -61,6 +61,14 @@ export const productsAll = defineStore("productsAll", {
       localStorage.removeItem("favoriteproduct");
     },
     // ------------------Get all products ---------
+    windowsizefun() {
+      this.windowsize = window.innerWidth;
+      window.onresize = () => {
+        this.windowsize = window.innerWidth;
+        console.log(this.windowsize);
+        console.log(window.scrollY);
+      };
+    },
   },
 });
 // ----------------------------------------------------------------------

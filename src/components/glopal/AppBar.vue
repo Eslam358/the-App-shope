@@ -305,9 +305,6 @@ export default {
       this.searshArrproducts = B.filter((a) =>
         a.category.toLowerCase().includes(this.valueTextRe.toLowerCase())
       );
-      console.log(this.valueTextRe);
-      console.log(this.searshArrCategory);
-      console.log(this.searshArrproducts);
     },
   },
   mounted() {},
