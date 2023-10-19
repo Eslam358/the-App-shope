@@ -2,7 +2,7 @@
   <v-navigation-drawer
     v-model="oppenDrawer"
     location="right"
-    :width="windowsize > 600 ? 368 : 300"
+    width="368"
     class="pa-0"
   >
     <v-container fluid class="pa-0">
@@ -311,13 +311,13 @@ export default {
       }
     });
     this.favoriteproduct_fAdut();
-    console.log("navDr");
-    this.windowsize = window.innerWidth;
-    window.onresize = () => {
-      this.windowsize = window.innerWidth;
-      console.log(this.windowsize);
-      console.log(window.scrollY);
-    };
+    // console.log("navDr");
+    // this.windowsize = window.innerWidth;
+    // window.onresize = () => {
+    //   this.windowsize = window.innerWidth;
+    //   console.log(this.windowsize);
+    //   console.log(window.scrollY);
+    // };
   },
 };
 </script>

@@ -8,12 +8,7 @@
       :Allpro="getproductarr"
     ></mian-app-bar>
     <AppBar :Arr="Arr" :Arrmore="Arrmore" :Allpro="getproductarr"></AppBar>
-    <v-main
-      class="pt-20 px-0"
-      :style="`min-height: 300px; --v-layout-top:${
-        windowsize > 960 ? '112px' : '65px'
-      }`"
-    >
+    <v-main class="pt-20 px-0 main-layout" style="min-height: 300px">
       <v-progress-linear
         :active="loading"
         :indeterminate="loading"
@@ -26,6 +21,14 @@
     </v-main>
   </v-layout>
 </template>
+<style lang="scss">
+.main-layout {
+  --v-layout-top: 112px !important;
+  @media screen and (max-width: 960px) {
+    --v-layout-top: 65px !important;
+  }
+}
+</style>
 
 <script>
 import mianAppBar from "./mainAppbar.vue";
@@ -46,7 +49,6 @@ export default {
       Arr: [],
       Arr_1: [],
       Arrmore: [],
-      windowsize: 0,
     };
   },
   components: {
@@ -91,13 +93,6 @@ export default {
     this.namcategories.forEach((el) => {
       if (!this.Arr.includes(el)) this.Arrmore.push(el);
     });
-    // await this.Allproducts();
-    console.log("layout");
-    this.windowsize = window.innerWidth;
-    window.onresize = () => {
-      this.windowsize = window.innerWidth;
-      console.log(this.windowsize);
-    };
   },
 };
 </script>
