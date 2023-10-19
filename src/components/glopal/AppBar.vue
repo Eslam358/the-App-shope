@@ -204,14 +204,6 @@
       </svg>
     </template>
     <v-app-bar-title>
-      <v-avatar class="display-601-none-img" size="55" color="">
-        <img
-          style="width: 100px; position: relative; top: 25px"
-          src="../../assets/images/assmaa1.jpg"
-          alt=""
-        />
-      </v-avatar>
-
       <img
         class="display-600-none-img"
         style="width: 100px; cursor: pointer"

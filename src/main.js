@@ -19,9 +19,6 @@ import "swiper/css/navigation";
 
 import mitt from "mitt";
 const emitter = mitt();
-
-import "@/components/cssmain/styleresponsive.css";
-
 createApp(App)
   .use(store)
   .use(Vuetify)

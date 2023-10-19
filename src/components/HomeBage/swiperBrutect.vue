@@ -73,7 +73,6 @@
           :key="data.id"
         >
           <v-hover v-slot="{ isHovering, props }">
-            <!-- <div class="con" style="dis"> -->
             <v-card
               style="text-align: start; position: relative; margin: auto"
               elevation="0"
@@ -183,7 +182,6 @@
                 >Quick view</v-btn
               >
             </v-card>
-            <!-- </div> -->
           </v-hover>
         </swiper-slide>
       </swiper>

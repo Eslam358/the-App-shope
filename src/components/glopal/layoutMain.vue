@@ -11,8 +11,8 @@
     <v-main
       class="pt-20 px-0"
       :style="`min-height: 300px; --v-layout-top:${
-        windowsize > 960 ? 112 : 65
-      }px`"
+        windowsize > 960 ? '112px' : '65px'
+      }`"
     >
       <v-progress-linear
         :active="loading"
@@ -76,7 +76,9 @@ export default {
   },
   props: ["loading"],
   inject: ["emitter"],
-  async mounted() {
+  beforeMount() {},
+
+  mounted() {
     this.windowsize = window.innerWidth;
     window.onresize = () => {
       this.windowsize = window.innerWidth;
@@ -85,8 +87,8 @@ export default {
     this.emitter.on("naveuse", () => {
       this.noor = true;
     });
-    await this.getproduct();
-    await this.name_categories();
+    this.getproduct();
+    this.name_categories();
 
     this.getproductarr.forEach((el) => {
       if (!this.Arr.includes(el.category)) this.Arr.push(el.category);

@@ -16,20 +16,20 @@
     <v-row>
       <v-col class="swip-newprod" cols="12" md="7" lg="8">
         <v-row v-if="getproductarr.length < 1">
-          <v-col cols="12" sm="6" lg="4" xl="4" xxl="4">
+          <v-col cols="12" sm="6" lg="4">
             <v-skeleton-loader
               class="mx-auto border"
               type="card-avatar, actions"
             ></v-skeleton-loader>
           </v-col>
 
-          <v-col cols="12" sm="6" lg="4" xl="4" xxl="4">
+          <v-col cols="12" sm="6" lg="4">
             <v-skeleton-loader
               class="mx-auto border"
               type="image, article"
             ></v-skeleton-loader>
           </v-col>
-          <v-col cols="12" sm="6" lg="4" xl="4" xxl="4">
+          <v-col cols="12" sm="6" lg="4">
             <v-skeleton-loader
               class="mx-auto border"
               type="image, article"
@@ -65,7 +65,7 @@
                   <v-card
                     style="text-align: start; position: relative; margin: auto"
                     elevation="0"
-                    max-width="350"
+                    max-width="300"
                     v-bind="props"
                   >
                     <v-card-text style="text-align: center"

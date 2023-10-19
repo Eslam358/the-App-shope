@@ -40,13 +40,6 @@
       <v-col cols="12" sm="6"
         ><div class="img">
           <img
-            class="display-601-none-img"
-            src="../../assets/images/assma-1.jpg"
-            style="width: 100%"
-            alt=""
-          />
-          <img
-            class="display-600-none-img"
             src="../../assets/images/laptops.webp"
             style="width: 100%"
             alt=""

@@ -10,7 +10,7 @@
       </v-col>
     </v-row>
     <v-row v-if="skeleton">
-      <v-col cols="4">
+      <v-col cols="12" sm="6" md="4">
         <v-skeleton-loader
           class="mx-auto border"
           max-width="400"
@@ -18,14 +18,14 @@
         ></v-skeleton-loader>
       </v-col>
 
-      <v-col cols="4">
+      <v-col cols="12" sm="6" md="4">
         <v-skeleton-loader
           class="mx-auto border"
           max-width="300"
           type="image, article"
         ></v-skeleton-loader>
       </v-col>
-      <v-col cols="4">
+      <v-col cols="12" sm="6" md="4">
         <v-skeleton-loader
           class="mx-auto border"
           max-width="300"
@@ -33,7 +33,7 @@
         ></v-skeleton-loader>
       </v-col>
 
-      <v-col cols="4">
+      <v-col cols="12" sm="6" md="4">
         <v-skeleton-loader
           class="mx-auto border"
           max-width="300"

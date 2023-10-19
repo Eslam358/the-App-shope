@@ -304,11 +304,11 @@ export default {
   inject: ["emitter"],
   mounted() {
     this.windowsize = window.innerWidth;
-    window.onresize = () => {
-      this.windowsize = window.innerWidth;
-      // console.log(this.windowsize);
-      // console.log(window.scrollY);
-    };
+    // window.onresize = () => {
+    //   this.windowsize = window.innerWidth;
+    //   console.log(this.windowsize);
+    //   console.log(window.scrollY);
+    // };
     this.emitter.on("naveuse", (tru) => {
       if (!tru) {
         this.oppenDrawer = true;
