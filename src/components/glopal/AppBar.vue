@@ -205,7 +205,6 @@
     </template>
     <v-app-bar-title>
       <img
-        class="display-600-none-img"
         style="width: 100px; cursor: pointer"
         src="../../assets/images/footer-logo.webp"
         alt=""
