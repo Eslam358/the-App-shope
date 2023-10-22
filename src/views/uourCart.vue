@@ -200,7 +200,7 @@
                 style="border: 1px solid #e6e6e6ff; border-radius: 30px"
               >
                 <v-icon
-                  @click="nnn(), data.total > 1 ? data.total-- : ''"
+                  @click="updated(), data.total > 1 ? data.total-- : ''"
                   style="font-size: 14px"
                   >mdi-minus</v-icon
                 >
@@ -214,7 +214,7 @@
                   :value="data.total"
                   type="number"
                 />
-                <v-icon @click="data.total++, nnn()" style="font-size: 14px"
+                <v-icon @click="data.total++, updated()" style="font-size: 14px"
                   >mdi-plus</v-icon
                 >
               </div>
@@ -280,23 +280,18 @@
                 <div style="border-bottom: 3px solid black">ORDER SUMMARY</div>
               </v-card-text>
               <v-card-text class="py-5">
+                <h5 style="text-align: left">Get Shipping Estimate:</h5>
                 <v-select
                   style="margin-bottom: -16px"
                   clearable
-                  value="California"
+                  v-model="country"
+                  :items="Object.keys(countriesWithProvinces)"
                   rounded="xl"
                   density="compact"
-                  :items="[
-                    'California',
-                    'Colorado',
-                    'Florida',
-                    'Georgia',
-                    'Texas',
-                    'Wyoming',
-                  ]"
                   variant="outlined"
                 ></v-select>
               </v-card-text>
+
               <v-card-text
                 class="py-2 d-flex justify-space-between align-center"
               >
@@ -309,15 +304,8 @@
                   rounded="xl"
                   density="compact"
                   clearable
-                  value="California"
-                  :items="[
-                    'California',
-                    'Colorado',
-                    'Florida',
-                    'Georgia',
-                    'Texas',
-                    'Wyoming',
-                  ]"
+                  :value="countriesWithProvinces[country][0]"
+                  :items="countriesWithProvinces[country]"
                   variant="outlined"
                 ></v-select>
                 <v-btn
@@ -330,8 +318,7 @@
                     border-color: #918f8f;
                     margin-left: 10px;
                   "
-                  @click="$router.push('/Home/Yourcart')"
-                  >view</v-btn
+                  >postal Code</v-btn
                 >
               </v-card-text>
               <v-card-text class="py-2">
@@ -345,7 +332,7 @@
                     padding: 14px;
                     font-size: 12px;
                   "
-                  >chickout</v-btn
+                  >Calculate Shipping</v-btn
                 >
               </v-card-text>
             </v-card>
@@ -360,23 +347,25 @@
             <v-card elevation="0">
               <v-divider></v-divider>
               <v-card-text class="py-2">
-                <v-btn
-                  variant="outlined"
-                  rounded="xl"
-                  block
+                <h5 style="text-align: left">Coupon Code</h5>
+                <input
+                  type="text"
+                  placeholder="Enter Coupon Code"
                   style="
-                    text-transform: capitalize;
-                    padding: 14px;
-                    font-size: 12px;
+                    font-size: 16px;
+                    text-align: center;
+                    width: 100%;
+                    padding: 10px;
+                    border: 1px solid #999;
+                    border-radius: 30px;
+                    outline: none;
                   "
-                  @click="$router.push('/Home/Yourcart')"
-                  >view cart</v-btn
-                >
+                />
               </v-card-text>
               <v-divider></v-divider>
               <v-card-text
                 style="color: #202020ff"
-                class="py-2 d-flex justify-space-between align-center"
+                class="py-5 d-flex justify-space-between align-center"
               >
                 <strong>total</strong>
                 <strong> ${{ totalAll }}</strong>
@@ -397,6 +386,7 @@
                 <v-btn
                   variant="outlined"
                   block
+                  @click="$router.push('/')"
                   style="text-transform: capitalize; padding: 14px"
                   >Continue shopping</v-btn
                 >
@@ -515,6 +505,7 @@ import { mapState, mapActions } from "pinia";
 export default {
   data: () => ({
     snackbar: false,
+    country: "Egypt",
     items: [
       {
         title: "Home",
@@ -526,6 +517,14 @@ export default {
       },
     ],
     Arr: [],
+    countriesWithProvinces: {
+      Afghanistan: ["Badakhshan", "Balkh", "Herat", "Kabul", "Nangarhar"],
+      Albania: ["Berat", "Durres", "Fier", "Tirana", "Vlore"],
+      Algeria: ["Algiers", "Oran", "Constantine", "Annaba", "Setif"],
+      Egypt: ["Cairo", "Alexandria", "Giza", "Luxor", "Aswan"],
+      SaudiArabia: ["Riyadh", "Jeddah", "Mecca", "Medina", "Dammam"],
+      Palestine: ["Jerusalem", "Gaza", "Nablus", "Hebron", "Ramallah"],
+    },
   }),
 
   computed: {
@@ -544,15 +543,16 @@ export default {
   inject: ["emitter"],
   methods: {
     ...mapActions(productsAll, [
-      "favoriteproduct_fAdut",
+      "favoriteproduct_updated",
       "favoriteproduct_Delet",
     ]),
-    nnn() {
-      console.log(this.favoriteproduct);
+    updated() {
       localStorage.setItem(
         "favoriteproduct",
         JSON.stringify(this.favoriteproduct)
       );
+      console.log(this.countriesWithProvinces);
+      console.log(Object.keys(this.countriesWithProvinces));
     },
     check() {
       if (this.favoriteproduct.length < 1) {
@@ -572,7 +572,7 @@ export default {
 
   mounted() {
     this.drawerclose(true);
-    this.favoriteproduct_fAdut();
+    this.favoriteproduct_updated();
   },
 };
 </script>

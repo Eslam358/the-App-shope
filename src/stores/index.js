@@ -20,7 +20,7 @@ export const productsAll = defineStore("productsAll", {
     },
     favoriteproduct_fun(data) {
       let logc = true;
-      this.favoriteproduct_fAdut();
+      this.favoriteproduct_updated();
       for (let i = 0; i < this.favoriteproduct.length; i++) {
         if (this.favoriteproduct[i].id == data.id) {
           logc = false;
@@ -37,7 +37,7 @@ export const productsAll = defineStore("productsAll", {
       );
       console.log(this.favoriteproduct);
     },
-    favoriteproduct_fAdut() {
+    favoriteproduct_updated() {
       if (localStorage.getItem("favoriteproduct")) {
         this.favoriteproduct = JSON.parse(
           localStorage.getItem("favoriteproduct")
@@ -45,7 +45,7 @@ export const productsAll = defineStore("productsAll", {
       }
     },
     favoriteproduct_Delet(id) {
-      this.favoriteproduct_fAdut();
+      this.favoriteproduct_updated();
       for (let i = 0; i < this.favoriteproduct.length; i++) {
         if (this.favoriteproduct[i].id == id) {
           this.favoriteproduct.splice(i, 1);

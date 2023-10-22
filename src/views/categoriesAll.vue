@@ -48,6 +48,7 @@
             style="text-align: start; position: relative"
             elevation="0"
             v-bind="props"
+            max-width="300"
           >
             <v-card-text style="text-align: center"
               ><div class="img">
@@ -56,7 +57,6 @@
                   style="width: 100%; height: 200px"
                 /></div
             ></v-card-text>
-            <h5>{{ data.id }}</h5>
             <v-card-text
               class="pt-0 pb-3"
               style="height: 55px; overflow: hidden; font-size: 12px"

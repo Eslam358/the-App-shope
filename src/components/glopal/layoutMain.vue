@@ -4,11 +4,24 @@
     <navDrawer></navDrawer>
     <mian-app-bar
       :Arr="Arr"
+      v-if="$route.name !== 'checkout'"
       :Arrmore="Arrmore"
       :Allpro="getproductarr"
     ></mian-app-bar>
-    <AppBar :Arr="Arr" :Arrmore="Arrmore" :Allpro="getproductarr"></AppBar>
-    <v-main class="pt-20 px-0 main-layout" style="min-height: 300px">
+    <AppBar
+      v-if="$route.name !== 'checkout'"
+      :Arr="Arr"
+      :Arrmore="Arrmore"
+      :Allpro="getproductarr"
+    ></AppBar>
+    <v-main
+      class="pt-20 px-0 main-layout"
+      :style="`min-height: 300px;${
+        $route.name == 'checkout'
+          ? ' --v-layout-top: 0px !important; padding-top: 0 !important;'
+          : ''
+      }`"
+    >
       <v-progress-linear
         :active="loading"
         :indeterminate="loading"
@@ -19,6 +32,7 @@
       <footelay :Arr="Arr" :Arrmore="Arrmore"></footelay>
       <quickView></quickView>
     </v-main>
+    <dialogPalestine></dialogPalestine>
   </v-layout>
 </template>
 <style lang="scss">
@@ -37,6 +51,7 @@ import quickView from "./quickView.vue";
 import navDrawer from "./navDrawer.vue";
 import AppBar from "./AppBar.vue";
 import drawerResponsev from "./drawerResponsev.vue";
+import dialogPalestine from "./dialogPalestine.vue";
 
 import { categories } from "@/stores/categories";
 import { productsAll } from "@/stores/index";
@@ -58,6 +73,7 @@ export default {
     navDrawer,
     AppBar,
     drawerResponsev,
+    dialogPalestine,
   },
   computed: {
     ...mapState(categories, ["namcategories", "Allpro"]),
@@ -78,8 +94,6 @@ export default {
   },
   props: ["loading"],
   inject: ["emitter"],
-  beforeMount() {},
-
   async mounted() {
     this.emitter.on("naveuse", () => {
       this.noor = true;

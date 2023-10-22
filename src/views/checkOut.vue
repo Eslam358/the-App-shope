@@ -73,17 +73,11 @@
         <v-card elevation="0">
           <v-card-actions class="pt-7 pb-0">
             <v-select
-              clearable
-              value="California"
+              label="Country/Region"
+              value="Egypt"
               density="compact"
-              :items="[
-                'California',
-                'Colorado',
-                'Florida',
-                'Georgia',
-                'Texas',
-                'Wyoming',
-              ]"
+              v-model="country"
+              :items="Object.keys(countriesWithProvinces)"
               variant="outlined"
             ></v-select>
           </v-card-actions>
@@ -118,37 +112,31 @@
               t
             ></v-text-field>
           </v-card-actions>
-          <v-card-actions class="py-0">
-            <v-text-field
-              density="compact"
-              variant="outlined"
-              style="width: 30%; margin-right: 10px"
-              counter="10"
-              label="first name (optional)"
-            ></v-text-field>
+          <v-card-actions class="py-0" style="align-items: flex-start">
             <v-select
-              style="width: 30%"
-              clearable
-              value="California"
+              style="width: 49%"
+              label="Governorate"
               density="compact"
-              :items="[
-                'California',
-                'Colorado',
-                'Florida',
-                'Georgia',
-                'Texas',
-                'Wyoming',
-              ]"
+              v-model="countriesWithProvinces[country][0]"
+              :items="countriesWithProvinces[country]"
               variant="outlined"
             ></v-select>
-            <v-text-field
-              density="compact"
+
+            <v-btn
               variant="outlined"
-              style="width: 30%; margin-left: 10px"
-              counter="10"
-              label="last name"
-              required
-            ></v-text-field>
+              density="compact"
+              style="
+                font-size: 12px;
+                padding-top: 0;
+                text-transform: capitalize;
+                height: 43px;
+                border-color: #918f8f;
+                width: 49%;
+                margin-left: 2%;
+                margin-top: 0;
+              "
+              >postal Code</v-btn
+            >
           </v-card-actions>
           <v-card-actions style="justify-content: end">
             <v-btn
@@ -237,15 +225,15 @@
         width="500"
       >
         <v-card>
-          <v-avatar class="mx-auto my-5" color="blue-darken-2" size="52">
-            <v-icon>mdi-check</v-icon></v-avatar
+          <v-avatar class="mx-auto my-5" color="blue-darken-2" size="80">
+            <v-icon size="40">mdi-check</v-icon></v-avatar
           >
           <v-card-text>
             <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Accusamus non optio vero, aut debitis ab illum sint laudantium
-              quas doloremque. Sed, eveniet! Itaque dolore commodi hic illo
-              aliquid consequatur voluptates.
+              We constantly strive to provide the best services and products to
+              our esteemed customers, meeting their needs and expectations. Your
+              interaction with us contributes to our support and encouragement
+              in innovating and continuously improving our services.
             </p>
           </v-card-text>
           <v-card-actions>
@@ -326,6 +314,15 @@ import { mapState, mapActions } from "pinia";
 export default {
   data: () => ({
     overlay: false,
+    country: "Egypt",
+    countriesWithProvinces: {
+      Afghanistan: ["Badakhshan", "Balkh", "Herat", "Kabul", "Nangarhar"],
+      Albania: ["Berat", "Durres", "Fier", "Tirana", "Vlore"],
+      Algeria: ["Algiers", "Oran", "Constantine", "Annaba", "Setif"],
+      Egypt: ["Cairo", "Alexandria", "Giza", "Luxor", "Aswan"],
+      SaudiArabia: ["Riyadh", "Jeddah", "Mecca", "Medina", "Dammam"],
+      Palestine: ["Jerusalem", "Gaza", "Nablus", "Hebron", "Ramallah"],
+    },
     items: [
       {
         title: "cart",
@@ -363,7 +360,7 @@ export default {
   },
   methods: {
     ...mapActions(productsAll, [
-      "favoriteproduct_fAdut",
+      "favoriteproduct_updated",
       "favoriteproduct_Delet",
       "favoriteproduct_Delet_All",
     ]),
@@ -382,7 +379,7 @@ export default {
   },
 
   mounted() {
-    this.favoriteproduct_fAdut();
+    this.favoriteproduct_updated();
   },
 };
 </script>

@@ -2,8 +2,7 @@
   <v-navigation-drawer
     v-model="oppenDrawer"
     location="right"
-    width="368"
-    class="pa-0"
+    class="pa-0 main-navigation-drawer"
   >
     <v-container fluid class="pa-0">
       <v-card elevation="0" class="pa-3" style="text-align: start">
@@ -170,7 +169,7 @@
                 "
               >
                 <v-icon
-                  @click="nnn(), data.total > 1 ? data.total-- : ''"
+                  @click="updated(), data.total > 1 ? data.total-- : ''"
                   style="font-size: 14px"
                   >mdi-minus</v-icon
                 >
@@ -184,7 +183,7 @@
                   :value="data.total"
                   type="number"
                 />
-                <v-icon @click="data.total++, nnn()" style="font-size: 14px"
+                <v-icon @click="data.total++, updated()" style="font-size: 14px"
                   >mdi-plus</v-icon
                 >
               </div>
@@ -226,7 +225,7 @@
             block
             color="#6CA7EAFF"
             style="text-transform: capitalize; padding: 24px"
-            @click="oppenDrawer = false"
+            @click="check()"
             >chickout</v-btn
           >
           <v-btn
@@ -241,8 +240,24 @@
       </v-card>
     </v-container>
   </v-navigation-drawer>
+  <v-snackbar v-model="snackbar" location="left bottom">
+    your cart is empty !!
+    <template v-slot:actions>
+      <v-btn color="pink" variant="text" @click="snackbar = false">
+        Close
+      </v-btn>
+    </template>
+  </v-snackbar>
 </template>
 <style>
+.main-navigation-drawer {
+  width: 380px !important;
+}
+@media screen and (max-width: 600px) {
+  .main-navigation-drawer {
+    width: 300px !important;
+  }
+}
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -266,7 +281,6 @@ export default {
     return {
       oppenDrawer: false,
       Arr: [],
-      windowsize: 0,
     };
   },
   components: {},
@@ -285,22 +299,23 @@ export default {
   },
   methods: {
     ...mapActions(productsAll, [
-      "favoriteproduct_fAdut",
+      "favoriteproduct_updated",
       "favoriteproduct_Delet",
     ]),
-    nnn() {
+    updated() {
       console.log(this.favoriteproduct);
       localStorage.setItem(
         "favoriteproduct",
         JSON.stringify(this.favoriteproduct)
       );
     },
-  },
-  watch: {
-    favoriteproduct() {
-      console.log("vvvvvvvvv");
+    check() {
+      this.$router.push({
+        name: "checkout",
+      });
     },
   },
+
   inject: ["emitter"],
   mounted() {
     this.emitter.on("naveuse", (tru) => {
@@ -310,14 +325,7 @@ export default {
         this.oppenDrawer = false;
       }
     });
-    this.favoriteproduct_fAdut();
-    // console.log("navDr");
-    // this.windowsize = window.innerWidth;
-    // window.onresize = () => {
-    //   this.windowsize = window.innerWidth;
-    //   console.log(this.windowsize);
-    //   console.log(window.scrollY);
-    // };
+    this.favoriteproduct_updated();
   },
 };
 </script>

@@ -122,16 +122,18 @@
         v-model="valueTextRe"
         id="menu-text-1"
         type="text"
+        @focusout="oppeninput = false"
         placeholder="cearsh the store"
-        :style="`padding: 7px 10px; width: ${
+        :style="`padding:${oppeninput ? '7px 10px' : '0px'}; width: ${
           oppeninput ? 185 : 0
-        }px; outline: none; transition:width 0.5s ease 0s;border-radius: 30px; border: ${
+        }px; outline: none; transition:width 0.3s ease 0s;border-radius: 30px; border: ${
           oppeninput ? 1 : 0
-        }px solid #999;left: 55px;position: absolute; background-color: white;`"
+        }px solid #999;left: 55px;position: absolute;   background-color: white !important;
+`"
       />
       <v-menu activator="#menu-text-1" v-model="oppenMenuVa">
         <v-list
-          v-if="valueTextRe !== ''"
+          v-show="valueTextRe !== ''"
           height="300"
           @click:select="
             (valueTextRe = ''), (oppeninput = false), (oppenMenuVa = false)
@@ -185,23 +187,28 @@
           </router-link>
         </v-list>
       </v-menu>
-      <svg
-        icon
+      <v-btn
+        icon=""
+        size="x-small"
         @click="oppeninput = !oppeninput"
-        data-icon="search"
-        viewBox="0 0 512 512"
-        width="20"
-        fill="#232323FF"
         :style="`left:${
-          oppeninput ? 210 : 55
-        }px;transition:All 0.5s ease 0s ;position: absolute;
+          oppeninput ? 200 : 45
+        }px;transition:All 0.3s ease 0s ;position: absolute;
   
     z-index: 999;`"
       >
-        <path
-          d="M495,466.2L377.2,348.4c29.2-35.6,46.8-81.2,46.8-130.9C424,103.5,331.5,11,217.5,11C103.4,11,11,103.5,11,217.5   S103.4,424,217.5,424c49.7,0,95.2-17.5,130.8-46.7L466.1,495c8,8,20.9,8,28.9,0C503,487.1,503,474.1,495,466.2z M217.5,382.9   C126.2,382.9,52,308.7,52,217.5S126.2,52,217.5,52C308.7,52,383,126.3,383,217.5S308.7,382.9,217.5,382.9z"
-        ></path>
-      </svg>
+        <svg
+          icon
+          data-icon="search"
+          viewBox="0 0 512 512"
+          width="20"
+          fill="#232323FF"
+        >
+          <path
+            d="M495,466.2L377.2,348.4c29.2-35.6,46.8-81.2,46.8-130.9C424,103.5,331.5,11,217.5,11C103.4,11,11,103.5,11,217.5   S103.4,424,217.5,424c49.7,0,95.2-17.5,130.8-46.7L466.1,495c8,8,20.9,8,28.9,0C503,487.1,503,474.1,495,466.2z M217.5,382.9   C126.2,382.9,52,308.7,52,217.5S126.2,52,217.5,52C308.7,52,383,126.3,383,217.5S308.7,382.9,217.5,382.9z"
+          ></path>
+        </svg>
+      </v-btn>
     </template>
     <v-app-bar-title>
       <img
@@ -307,6 +314,15 @@ export default {
       );
     },
   },
-  mounted() {},
+  mounted() {
+    // document.addEventListener("click", function (e) {
+    //   // if (e.target.className == "v-list-item-title") {
+    //   console.log(e.oppeninput);
+    //   // }
+    //   // this.oppeninput = false;
+    //   // if (this.oppeninput == true) {
+    //   // }
+    // });
+  },
 };
 </script>
