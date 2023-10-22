@@ -119,64 +119,14 @@
               >
             </p>
           </v-card-text>
-          <!-- <v-card-text>
-            <v-list
-              v-model:selected="imgs[data.id]"
-              class="d-flex align-center justify-start"
-              style="overflow: hidden"
-            >
-              <v-list-item
-                event-color="warningred lighten-2"
-                elevation="0"
-                class="pa-0 mr-1"
-                v-for="(img, i) in data.images"
-                :key="i"
-                :value="img"
-                style="
-                  padding: 0;
-                  border-radius: 50%;
-                  min-width: 37px;
-                  min-height: 37px;
-                "
-              >
-                <div
-                  class="img"
-                  style="
-                    width: 35px;
-                    overflow: hidden;
-                    height: 35px;
-                    border: 1px solid rgb(153, 153, 153);
-                    border-radius: 50%;
-                  "
-                >
-                  <img
-                    style="width: 35px; height: 35px; border-radius: 50%"
-                    :src="img"
-                    alt=""
-                  /></div
-              ></v-list-item>
-            </v-list>
-          </v-card-text> -->
-          <v-card-text>
-            <v-btn
-              variant="outlined"
-              rounded="xl"
-              style="
-                width: 70%;
-                text-transform: none;
-                font-size: 14px;
-                font-weight: bold;
-              "
-            >
-              Choose optians</v-btn
-            >
-          </v-card-text>
+
           <v-card-text>
             <v-btn
               @click="Addproduct(data), (snackbar = true)"
               rounded="xl"
               color="black"
               style="
+                height: 40px;
                 width: 70%;
                 text-transform: none;
                 font-size: 14px;

@@ -154,18 +154,26 @@
           </v-card-text>
           <v-btn
             @click="overlay = false"
-            color="black"
+            icon
+            color="#ff000000"
+            size="25"
+            elevation="0"
             class="pa-0"
-            style="
-              position: fixed;
-              top: -8px;
-              right: -8px;
-              max-height: 24px;
-              font-size: 12px;
-              min-width: 23px;
-            "
-            >X</v-btn
+            style="position: fixed; top: -8px; right: -8px"
           >
+            <span
+              style="
+                font-size: 14px;
+                background-color: rgb(0, 0, 0);
+                width: 20px;
+                font-weight: bold;
+                height: 22px;
+                padding: 3px;
+                color: white;
+              "
+              >X</span
+            >
+          </v-btn>
         </v-col>
       </v-row>
     </v-card>

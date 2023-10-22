@@ -3,7 +3,7 @@
     >
 
     <v-dialog v-model="dialog" activator="parent" fullscreen>
-      <v-card color="#3f9d0491">
+      <v-card color="#3f9d0491" @dblclick="dialog = false">
         <v-card-text style="position: relative">
           <!-- <v-card max-width="350px"> -->
           <div
@@ -32,12 +32,19 @@
           <!-- </v-card> -->
         </v-card-text>
         <v-card-actions>
-          <v-btn color="primary" size="x-large" block @click="dialog = false">
+          <v-btn size="x-large" block @click="dialog = false">
             <div style="position: relative">
               <div
                 style="width: 150px; height: 20px; background-color: black"
               ></div>
-              <div style="width: 150px; height: 20px; background-color: white">
+              <div
+                style="
+                  width: 150px;
+                  height: 20px;
+                  background-color: white;
+                  color: rgb(166, 35, 241);
+                "
+              >
                 الله اكبر
               </div>
               <div

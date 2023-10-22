@@ -22,7 +22,7 @@
             >Express Checkout</v-card-subtitle
           >
           <v-card-actions>
-            <v-btn style="background-color: #592ff4ff; width: 50%"
+            <v-btn style="background-color: #592ff4ff; width: 49%"
               ><svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="inherit"
@@ -30,7 +30,7 @@
                 viewBox="0 0 341 80.035"
                 title="Shop Pay"
                 class="P3VGi"
-                style="fill: white; width: 50px"
+                style="fill: white; width: 49px"
               >
                 <path
                   fill-rule="evenodd"
@@ -42,7 +42,7 @@
                 ></path>
               </svg>
             </v-btn>
-            <v-btn style="background-color: black; width: 50%">
+            <v-btn style="background-color: black; width: 49%">
               <svg width="41" height="17" xmlns="http://www.w3.org/2000/svg">
                 <g fill="none" fill-rule="evenodd">
                   <path
