@@ -4,11 +4,16 @@
       <v-col cols="12">
         <div class="d-flex align-center justify-space-between">
           <h3 class="topcat-h3">Top Categories</h3>
-          <span
-            ><a href="#" style="color: #202020; font-size: 14px"
-              >All Shope</a
-            ></span
-          >
+          <span>
+            <router-link
+              :to="{
+                name: 'categories',
+                params: { categories: router },
+              }"
+              style="color: #202020"
+              >All Shope</router-link
+            >
+          </span>
         </div>
       </v-col>
     </v-row>

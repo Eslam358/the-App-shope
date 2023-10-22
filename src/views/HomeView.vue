@@ -19,7 +19,10 @@
         />
       </v-row>
     </v-container>
-    <TopCategories :getproductarr="getproductarr.slice(7, 19)"></TopCategories>
+    <TopCategories
+      router="Allproduct"
+      :getproductarr="getproductarr.slice(7, 19)"
+    ></TopCategories>
     <newProducts
       :getproductarr="getproductarr.filter((a) => a.category == 'laptops')"
       router="laptops"

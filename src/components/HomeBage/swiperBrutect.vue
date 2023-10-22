@@ -7,8 +7,13 @@
             {{ titlehead }}
           </h2>
           <span
-            ><a :href="`/categories/${router}`" :style="`color: ${colorspan}`"
-              >All Shope</a
+            ><router-link
+              :to="{
+                name: 'categories',
+                params: { categories: router },
+              }"
+              :style="`color: ${colorspan}`"
+              >All Shope</router-link
             ></span
           >
         </div>
@@ -45,9 +50,6 @@
       </v-col>
     </v-row>
     <v-row v-else>
-      <!-- modules: [FreeMode, Pagination], -->
-      <!-- import 'swiper/css/free-mode'; -->
-      <!-- :freeMode="true" -->
       <swiper
         class="swiper-main"
         :modules="modules"
