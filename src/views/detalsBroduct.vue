@@ -255,7 +255,6 @@ export default {
     this.dataAll = this.getcategory.filter(
       (a) => a.id == this.$route.params.id
     );
-    console.log(this.dataAll);
     this.snackbar = false;
   },
 };

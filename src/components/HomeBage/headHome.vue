@@ -263,6 +263,11 @@
   img {
     width: 100%;
     height: 100%;
+    @media screen and (max-width: 600px) {
+      width: 188%;
+      margin-left: -74%;
+      height: 100%;
+    }
   }
 }
 .head {
@@ -293,14 +298,17 @@
       font-size: 40px;
       font-weight: 800;
       line-height: 50px;
-      @media screen and (max-width: 500px) {
-        font-size: 30px;
+      @media screen and (max-width: 600px) {
+        font-size: 33px;
+        text-shadow: 3px 2px 5px #000;
       }
     }
     p {
       font-size: 16px;
-      @media screen and (max-width: 500px) {
-        font-size: 14px;
+      @media screen and (max-width: 600px) {
+        font-size: 16px;
+        text-shadow: 0px 5px #000;
+        font-weight: bold;
       }
     }
   }

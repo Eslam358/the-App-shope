@@ -365,7 +365,6 @@ export default {
       "favoriteproduct_Delet_All",
     ]),
     nnn() {
-      console.log(this.favoriteproduct);
       localStorage.setItem(
         "favoriteproduct",
         JSON.stringify(this.favoriteproduct)

@@ -293,7 +293,6 @@ export default {
     this.windowsize = window.innerWidth;
     window.onresize = () => {
       this.windowsize = window.innerWidth;
-      // console.log(window.scrollY);
     };
   },
 };

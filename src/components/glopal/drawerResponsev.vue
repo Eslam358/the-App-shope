@@ -14,10 +14,10 @@
       <v-card elevation="0" class="pa-3 pt-0" style="text-align: start">
         <v-list v-model:opened="open">
           <router-link
+            class="router-category"
             v-for="(category, i) in Arr"
             :key="i"
             style="
-              color: #2a2a2b;
               text-decoration: none;
               text-transform: capitalize;
               font-size: 12px;
@@ -36,10 +36,10 @@
               <v-list-item v-bind="props" title="MORE"></v-list-item>
             </template>
             <router-link
+              class="router-category"
               v-for="(category, i) in Arrmore"
               :key="i"
               style="
-                color: #2a2a2b;
                 text-decoration: none;
                 text-transform: capitalize;
                 font-size: 12px;
@@ -86,10 +86,34 @@
   </v-navigation-drawer>
 </template>
 
-<style>
+<style lang="scss" scoped>
 .svg-respon svg {
   width: 20px !important;
   margin-right: 20px;
+}
+.router-category {
+  color: #2a2a2b;
+  position: relative;
+  &:hover {
+    color: #5bb2fa;
+    &::after {
+      width: 100%;
+    }
+  }
+  &::after {
+    content: "";
+    transition: 0.3s all ease;
+    position: absolute;
+    height: 2px;
+    width: 0;
+    background-color: #5bb2fa;
+    bottom: -5px;
+    left: 0;
+    &:hover {
+      width: 100%;
+      transition: 0.3s all;
+    }
+  }
 }
 </style>
 

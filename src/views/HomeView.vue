@@ -9,7 +9,7 @@
       :colorspan="colorspan"
       :getproductarr="getproductarr.slice(0, 16)"
     ></swiperBrutect>
-    <!-- img -->
+
     <v-container fluid class="px-0">
       <v-row>
         <img
@@ -61,7 +61,7 @@
         getproductarr.filter((a) => a.category == 'home-decoration')
       "
     ></swiperBrutect>
-    <!-- img -->
+
     <v-container fluid class="px-0">
       <v-row style="overflow: hidden">
         <img class="img-tv" src="../assets/images/tv-banner.webp" alt="" />
@@ -154,7 +154,6 @@ export default {
       this.getproductarr.forEach((el) => {
         if (!A.includes(el.category)) A.push(el.category);
       });
-      console.log(A);
     },
   },
   async mounted() {
@@ -164,9 +163,6 @@ export default {
     this.getproductarr.forEach((el) => {
       if (!this.Arr.includes(el.category)) this.Arr.push(el.category);
     });
-    console.log(this.Arr);
-    console.log(this.$route);
-    console.log(this.$router);
   },
 };
 </script>

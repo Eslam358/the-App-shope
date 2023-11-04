@@ -303,7 +303,6 @@ export default {
       "favoriteproduct_Delet",
     ]),
     updated() {
-      console.log(this.favoriteproduct);
       localStorage.setItem(
         "favoriteproduct",
         JSON.stringify(this.favoriteproduct)

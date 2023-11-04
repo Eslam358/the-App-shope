@@ -88,8 +88,6 @@ export default {
         await this.get_categories(this.namcategories[i], true);
         this.Arr_1.push(...this.Allpro);
       }
-
-      console.log(this.Arr_1);
     },
   },
   props: ["loading"],

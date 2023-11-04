@@ -60,13 +60,13 @@
             </svg>
           </div>
           <v-menu activator="#menu-text">
-            <v-list height="300" @click:select="valueText = ''">
+            <v-list max-height="300" @click:select="valueText = ''">
               <v-list-item type="subheader" title="Category"></v-list-item>
               <router-link
+                class="router-category-m"
                 v-for="(category, i) in searshArrCategory"
                 :key="i"
                 style="
-                  color: #161880;
                   text-decoration: none;
                   text-transform: capitalize;
                   font-size: 12px;
@@ -87,9 +87,9 @@
               ></v-list-item>
               <router-link
                 v-for="(data, i) in searshArrproducts"
+                class="router-category-m"
                 :key="i"
                 style="
-                  color: #161880;
                   text-decoration: none;
                   text-transform: capitalize;
                   font-size: 12px;
@@ -109,9 +109,6 @@
               </router-link>
             </v-list>
           </v-menu>
-        </v-col>
-        <v-col cols="1">
-          <v-btn @click="hhh">smpu</v-btn>
         </v-col>
         <v-col
           cols="3"
@@ -206,14 +203,11 @@
               list-style: none;
             "
           >
-            <li v-for="(category, i) in Arr" :key="i" style="font-size: 12px">
+            <li v-for="(category, i) in Arr" :key="i" style="font-size: 14px">
               <router-link
+                class="router-category"
                 v-if="i < 10"
-                style="
-                  color: white;
-                  text-decoration: none;
-                  text-transform: capitalize;
-                "
+                style="text-decoration: none; text-transform: capitalize"
                 :to="{ name: 'categories', params: { categories: category } }"
               >
                 {{ category.replaceAll("-", " ") }}
@@ -223,7 +217,7 @@
               style="
                 text-decoration: none;
                 text-transform: capitalize;
-                font-size: 12px;
+                font-size: 14px;
               "
             >
               <v-btn id="menu-1">
@@ -232,12 +226,12 @@
               </v-btn>
             </li>
             <v-menu activator="#menu-1" v-model="oppen">
-              <v-list height="300">
+              <v-list height="305">
                 <router-link
+                  class="router-category-m"
                   v-for="(category, i) in Arrmore"
                   :key="i"
                   style="
-                    color: #161880;
                     text-decoration: none;
                     text-transform: capitalize;
                     font-size: 12px;
@@ -361,6 +355,35 @@
   background-color: rgb(192 192 192);
   border-radius: 5px;
 }
+.router-category {
+  color: white;
+}
+.router-category-m {
+  color: #161880;
+}
+.router-category {
+  position: relative;
+  &:hover {
+    color: #5bb2fa;
+    &::after {
+      width: 100%;
+    }
+  }
+  &::after {
+    content: "";
+    transition: 0.3s all ease;
+    position: absolute;
+    height: 2px;
+    width: 0;
+    background-color: #5bb2fa;
+    bottom: -5px;
+    left: 0;
+    &:hover {
+      width: 100%;
+      transition: 0.3s all;
+    }
+  }
+}
 </style>
 
 <script>
@@ -440,9 +463,6 @@ export default {
     ...mapState(productsAll, ["favoriteproduct"]),
   },
   methods: {
-    hhh() {
-      console.log(this.$router);
-    },
     Alnoor() {
       if (this.$route.name !== "YourCart") {
         this.emitter.emit("naveuse");
@@ -465,9 +485,6 @@ export default {
         this.searshArrCategory = A;
         this.searshArrproducts = B;
       }
-      console.log(this.valueText);
-      console.log(this.searshArrCategory);
-      console.log(this.searshArrproducts);
     },
   },
 };

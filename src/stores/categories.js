@@ -58,22 +58,5 @@ export const categories = defineStore("categoriesAll", {
           console.log(error);
         });
     },
-    // name_Allproduct(categories) {
-    //   // ------------------Get all products ---------
-    //   this.Allpro = [];
-    //   categories.forEach((el) => {
-    //     async () => {
-    //       await fetch(`https://dummyjson.com/products/category/${el}`)
-    //         .then((res) => res.json())
-    //         .then((res) => {
-    //           this.Allpro.push(res.products);
-    //           console.log(this.Allpro);
-    //         })
-    //         .catch((error) => {
-    //           console.log(error);
-    //         });
-    //     };
-    //   });
-    // },
   },
 });

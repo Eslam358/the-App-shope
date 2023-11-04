@@ -1,9 +1,10 @@
 <template>
   <div class="text-center">
-    >
-
     <v-dialog v-model="dialog" activator="parent" fullscreen>
       <v-card color="#3f9d0491" @dblclick="dialog = false">
+        <v-card-text style="display: flex; justify-content: center">
+          <v-btn color="blue" width="80" height="80" icon>{{ num }} s</v-btn>
+        </v-card-text>
         <v-card-text style="position: relative">
           <!-- <v-card max-width="350px"> -->
           <div
@@ -31,6 +32,7 @@
           </div>
           <!-- </v-card> -->
         </v-card-text>
+
         <v-card-actions>
           <v-btn size="x-large" block @click="dialog = false">
             <div style="position: relative">
@@ -43,6 +45,7 @@
                   height: 20px;
                   background-color: white;
                   color: rgb(166, 35, 241);
+                  cursor: pointer;
                 "
               >
                 الله اكبر
@@ -72,7 +75,17 @@ export default {
   data() {
     return {
       dialog: true,
+      num: 3,
     };
+  },
+  mounted() {
+    let AAA = setInterval(() => {
+      this.num--;
+      if (this.num == 0) {
+        clearInterval(AAA);
+        this.dialog = false;
+      }
+    }, 1000);
   },
 };
 </script>

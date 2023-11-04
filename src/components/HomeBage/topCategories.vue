@@ -69,6 +69,6 @@
 
 <script>
 export default {
-  props: ["getproductarr"],
+  props: ["getproductarr", "router"],
 };
 </script>

@@ -18,20 +18,17 @@
               align-items: center;
               justify-content: start;
               list-style: none;
-              gap: 25px;
+              gap: 35px;
             "
           >
             <router-link
+              class="router-category"
               v-for="(category, i) in Arr"
               :key="i"
-              style="
-                color: white;
-                text-decoration: none;
-                text-transform: capitalize;
-              "
+              style="text-decoration: none; text-transform: capitalize"
               :to="{ name: 'categories', params: { categories: category } }"
             >
-              <li style="font-size: 12px">
+              <li style="font-size: 14px">
                 {{ category.replaceAll("-", " ") }}
               </li>
             </router-link>
@@ -48,23 +45,25 @@
               </v-btn>
             </li>
             <v-menu activator="#menu" v-model="oppen">
-              <v-list>
-                <v-list-item v-for="(category, i) in Arrmore" :key="i">
-                  <router-link
-                    style="
-                      color: #161880;
-                      text-decoration: none;
-                      text-transform: capitalize;
-                      font-size: 12px;
-                    "
-                    :to="{
-                      name: 'categories',
-                      params: { categories: category },
-                    }"
-                  >
+              <v-list height="305">
+                <router-link
+                  class="router-category-m"
+                  v-for="(category, i) in Arrmore"
+                  :key="i"
+                  style="
+                    text-decoration: none;
+                    text-transform: capitalize;
+                    font-size: 12px;
+                  "
+                  :to="{
+                    name: 'categories',
+                    params: { categories: category },
+                  }"
+                >
+                  <v-list-item :value="i">
                     {{ category.replaceAll("-", " ") }}
-                  </router-link>
-                </v-list-item>
+                  </v-list-item>
+                </router-link>
               </v-list>
             </v-menu>
           </ul>
@@ -134,17 +133,17 @@
       <v-menu activator="#menu-text-1" v-model="oppenMenuVa">
         <v-list
           v-show="valueTextRe !== ''"
-          height="300"
+          height="304"
           @click:select="
             (valueTextRe = ''), (oppeninput = false), (oppenMenuVa = false)
           "
         >
           <v-list-item type="subheader" title="Category"></v-list-item>
           <router-link
+            class="router-category"
             v-for="(category, i) in searshArrCategory"
             :key="i"
             style="
-              color: #161880;
               text-decoration: none;
               text-transform: capitalize;
               font-size: 12px;
@@ -164,6 +163,7 @@
             title="products"
           ></v-list-item>
           <router-link
+            class="router-category"
             v-for="(data, i) in searshArrproducts"
             :key="i"
             style="
@@ -262,10 +262,41 @@
     </template>
   </v-app-bar>
 </template>
-<style>
+<style lang="scss">
 .app-bar-tablet .v-toolbar__prepend {
   flex-basis: min-content !important;
   position: relative;
+}
+.router-category {
+  color: white;
+}
+.router-category-m {
+  color: #161880;
+}
+
+.router-category-m,
+.router-category {
+  position: relative;
+  &:hover {
+    color: #5bb2fa;
+    &::after {
+      width: 100%;
+    }
+  }
+  &::after {
+    content: "";
+    transition: 0.3s all ease;
+    position: absolute;
+    height: 2px;
+    width: 0;
+    background-color: #5bb2fa;
+    bottom: -5px;
+    left: 0;
+    &:hover {
+      width: 100%;
+      transition: 0.3s all;
+    }
+  }
 }
 </style>
 
@@ -276,6 +307,7 @@ import { mapState } from "pinia";
 export default {
   data: () => {
     return {
+      eee: "uuuuuu",
       oppen: false,
       oppeninput: false,
       valueTextRe: "",
@@ -313,16 +345,6 @@ export default {
         a.category.toLowerCase().includes(this.valueTextRe.toLowerCase())
       );
     },
-  },
-  mounted() {
-    // document.addEventListener("click", function (e) {
-    //   // if (e.target.className == "v-list-item-title") {
-    //   console.log(e.oppeninput);
-    //   // }
-    //   // this.oppeninput = false;
-    //   // if (this.oppeninput == true) {
-    //   // }
-    // });
   },
 };
 </script>

@@ -551,8 +551,6 @@ export default {
         "favoriteproduct",
         JSON.stringify(this.favoriteproduct)
       );
-      console.log(this.countriesWithProvinces);
-      console.log(Object.keys(this.countriesWithProvinces));
     },
     check() {
       if (this.favoriteproduct.length < 1) {

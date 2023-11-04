@@ -12,7 +12,6 @@ export const productsAll = defineStore("productsAll", {
         .then((res) => res.json())
         .then((res) => {
           this.getproductarr = res.products;
-          console.log(res);
         })
         .catch((error) => {
           console.log(error);
@@ -35,7 +34,6 @@ export const productsAll = defineStore("productsAll", {
         "favoriteproduct",
         JSON.stringify(this.favoriteproduct)
       );
-      console.log(this.favoriteproduct);
     },
     favoriteproduct_updated() {
       if (localStorage.getItem("favoriteproduct")) {
@@ -65,8 +63,6 @@ export const productsAll = defineStore("productsAll", {
       this.windowsize = window.innerWidth;
       window.onresize = () => {
         this.windowsize = window.innerWidth;
-        console.log(this.windowsize);
-        console.log(window.scrollY);
       };
     },
   },
