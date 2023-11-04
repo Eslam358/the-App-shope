@@ -140,7 +140,7 @@
         >
           <v-list-item type="subheader" title="Category"></v-list-item>
           <router-link
-            class="router-category"
+            class="router-category-m"
             v-for="(category, i) in searshArrCategory"
             :key="i"
             style="
