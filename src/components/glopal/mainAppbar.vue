@@ -111,11 +111,12 @@
           </v-menu>
         </v-col>
         <v-col
-          cols="3"
-          class="px-0"
+          cols="4"
+          class=""
           style="
             display: flex;
-            justify-content: space-around;
+            justify-content: end;
+            gap: 20px;
             align-items: center;
           "
         >
@@ -220,7 +221,8 @@
                 font-size: 14px;
               "
             >
-              <v-btn id="menu-1">
+              <v-btn id="menu-1" style="text-transform: capitalize"
+                >more
                 <v-icon v-if="oppen">mdi-chevron-down</v-icon>
                 <v-icon v-else>mdi-chevron-up</v-icon>
               </v-btn>

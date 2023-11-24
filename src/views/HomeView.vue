@@ -1,4 +1,5 @@
 <template>
+  <!-- <v-lazy> -->
   <div class="home" style="overflow: hidden">
     <headHome></headHome>
     <photoHome></photoHome>
@@ -35,7 +36,7 @@
       :colorspan="colorspan"
       :getproductarr="getproductarr.filter((a) => a.category == 'smartphones')"
     ></swiperBrutect>
-    <!-- img -->
+
     <v-container fluid class="px-0">
       <v-row>
         <v-col class="py-0" cols="12" sm="6" lg="6" xl="6" xxl="6">
@@ -85,6 +86,7 @@
     ></swiperBrutect>
     <wheShopWithUs></wheShopWithUs>
   </div>
+  <!-- </v-lazy> -->
 </template>
 
 <style lang="scss">
@@ -146,9 +148,11 @@ export default {
     ...mapState(productsAll, ["getproductarr"]),
     ...mapState(categories, ["namcategories"]),
   },
+  inject: ["emitter"],
   methods: {
     ...mapActions(productsAll, ["getproduct"]),
     ...mapActions(categories, ["name_categories"]),
+
     test() {
       let A = [];
       this.getproductarr.forEach((el) => {

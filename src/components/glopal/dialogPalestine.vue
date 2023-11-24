@@ -74,10 +74,12 @@
 export default {
   data() {
     return {
-      dialog: true,
+      dialog: false,
       num: 3,
     };
   },
+
+  inject: ["emitter"],
   mounted() {
     let AAA = setInterval(() => {
       this.num--;

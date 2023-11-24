@@ -11,14 +11,13 @@
   >
     <v-container fluid class="main-app">
       <v-row>
-        <v-col cols="10">
+        <v-col cols="8" class="mt-5">
           <ul
             style="
               display: flex;
               align-items: center;
-              justify-content: start;
+              justify-content: space-between;
               list-style: none;
-              gap: 35px;
             "
           >
             <router-link
@@ -32,14 +31,11 @@
                 {{ category.replaceAll("-", " ") }}
               </li>
             </router-link>
-            <li
-              style="
-                text-decoration: none;
-                text-transform: capitalize;
-                font-size: 12px;
-              "
-            >
-              <v-btn id="menu" icon>
+            <li style="text-decoration: none; text-transform: capitalize">
+              <v-btn
+                id="menu-1"
+                style="text-transform: capitalize; font-size: 14px"
+                >more
                 <v-icon v-if="oppen">mdi-chevron-down</v-icon>
                 <v-icon v-else>mdi-chevron-up</v-icon>
               </v-btn>
@@ -69,7 +65,7 @@
           </ul>
         </v-col>
         <v-col
-          cols="2"
+          cols="4"
           style="display: flex; justify-content: end; align-items: center"
         >
           <div class="text" @click="Alnoor" style="cursor: pointer">

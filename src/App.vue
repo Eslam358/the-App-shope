@@ -25,7 +25,7 @@ export default {
       });
       setTimeout(() => {
         this.loading = false;
-      }, 5000);
+      }, 3000);
     },
   },
 };

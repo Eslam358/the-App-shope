@@ -19,10 +19,11 @@ import "swiper/css/navigation";
 
 import mitt from "mitt";
 const emitter = mitt();
+const Pinia = createPinia();
 createApp(App)
   .use(store)
   .use(Vuetify)
-  .use(createPinia())
+  .use(Pinia)
   .use(router)
   .provide("emitter", emitter)
   .mount("#app");
