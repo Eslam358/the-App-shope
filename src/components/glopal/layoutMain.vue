@@ -14,6 +14,7 @@
       :Arrmore="Arrmore"
       :Allpro="getproductarr"
     ></AppBar>
+
     <v-main
       class="pt-20 px-0 main-layout"
       :style="`min-height: 300px;${
@@ -28,10 +29,12 @@
         color="light-blue"
         style="position: fixed; z-index: 99999"
       ></v-progress-linear>
+
       <slot></slot>
       <footelay :Arr="Arr" :Arrmore="Arrmore"></footelay>
       <quickView></quickView>
     </v-main>
+
     <dialogPalestine></dialogPalestine>
   </v-layout>
 </template>

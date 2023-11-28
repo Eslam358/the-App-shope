@@ -264,8 +264,8 @@
     width: 100%;
     height: 100%;
     @media screen and (max-width: 600px) {
-      width: 188%;
-      margin-left: -74%;
+      width: 190%;
+      // margin-left: -74%;
       height: 100%;
     }
   }
@@ -309,6 +309,7 @@
         font-size: 16px;
         text-shadow: 0px 5px #000;
         font-weight: bold;
+        // color: #333;
       }
     }
   }
